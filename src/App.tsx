@@ -1,29 +1,12 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import Probability from "./pages/Probability";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/probability" element={<Probability />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </HashRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  return (
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h1>🥚 EggHub Test</h1>
+      <p>If you can see this, React is working!</p>
+      <p>Base URL: {import.meta.env.BASE_URL}</p>
+      <p>Mode: {import.meta.env.MODE}</p>
+    </div>
+  );
+};
 
 export default App;
